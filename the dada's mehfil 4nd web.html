@@ -1,0 +1,639 @@
+# Let's generate a complete, professional single-page website for "THE DADA'S MEHFIL" using HTML and CSS saved into a clean index.html file, which can also be split if needed, but a single well-structured HTML file with embedded responsive CSS is easiest for deployment or testing in VS Code.
+# Wait, the user asked for coding from VS Code, so giving them the exact code or a downloadable HTML/CSS package is best. Let's create an amazing HTML file with CSS included (or separate files zipped/provided nicely). Let's generate an all-in-one or separate HTML & CSS structure packaged neatly in a zip or as a complete standalone HTML file that looks stunning!
+
+html_content = """<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE DADA'S MEHFIL | Chai • Sukoon • Baatein</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #d4a373;
+            --dark-bg: #121212;
+            --card-bg: #1e1e1e;
+            --accent: #bc6c25;
+            --text-light: #fefae0;
+            --text-muted: #dda15e;
+            --gold: #e9c46a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Header / Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 163, 115, 0.2);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-area img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+            object-fit: cover;
+        }
+
+        .logo-area h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--text-light);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-area h1 span {
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(188, 108, 37, 0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(188, 108, 37, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 0.85)), url('https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .hero h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 900;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero h2 span {
+            color: var(--primary);
+            text-shadow: 0 0 20px rgba(212, 163, 115, 0.4);
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            letter-spacing: 3px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--text-light);
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: #121212;
+        }
+
+        /* Sections General */
+        section {
+            padding: 90px 10% 60px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .section-title h3 span {
+            color: var(--primary);
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: #d3d3d3;
+            font-size: 1.05rem;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature-box {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .feature-box h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--gold);
+        }
+
+        .feature-box p {
+            font-size: 0.9rem;
+            margin: 0;
+            color: #b0b0b0;
+        }
+
+        .about-img img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 2px solid rgba(212, 163, 115, 0.3);
+        }
+
+        /* Menu Section */
+        .menu-categories {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .cat-btn {
+            background: var(--card-bg);
+            border: 1px solid rgba(212, 163, 115, 0.3);
+            color: var(--text-light);
+            padding: 10px 22px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .cat-btn.active, .cat-btn:hover {
+            background: var(--primary);
+            color: #121212;
+            border-color: var(--primary);
+            font-weight: 600;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .menu-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 163, 115, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(212, 163, 115, 0.15);
+        }
+
+        .menu-card-header {
+            background: linear-gradient(135deg, #222, #1a1a1a);
+            padding: 20px;
+            border-bottom: 2px solid var(--primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu-card-header h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--gold);
+        }
+
+        .menu-card-header i {
+            color: var(--primary);
+            font-size: 1.4rem;
+        }
+
+        .menu-items-list {
+            padding: 20px;
+        }
+
+        .menu-item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+
+        .menu-item-row:last-child {
+            border-bottom: none;
+        }
+
+        .item-name {
+            font-size: 0.95rem;
+            color: #e0e0e0;
+        }
+
+        .item-price {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1rem;
+        }
+
+        /* Contact & Location Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(212, 163, 115, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .contact-info h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .info-item i {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+
+        .info-item p {
+            color: #d0d0d0;
+            font-size: 1rem;
+        }
+
+        .info-item span {
+            display: block;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 3px;
+        }
+
+        .map-box {
+            width: 100%;
+            height: 100%;
+            min-height: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid rgba(212, 163, 115, 0.3);
+        }
+
+        .map-box iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: #0d0d0d;
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 1px solid rgba(212, 163, 115, 0.2);
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+        }
+
+        footer span {
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .about-content, .contact-container {
+                grid-template-columns: 1fr;
+            }
+            nav ul {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo-area">
+            <img src="c:\Users\USER\Documents\RITIK EDITZ\THE DADA'S MEHFIL CAFE FOLDER\image_b8a796.jpg" alt="Logo"  
+            <h1>THE DADA'S MEHFIL</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="tel:9516705957" class="cta-btn"><i class="fas fa-phone-alt"></i> Call Now</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h2><span>THE DADA'S MEHFIL</span></h2>
+        <p>Garama Garam Chai, Tasty Khana Aur Apno Ki Baatein – Bas Yahi Hai Pehchaan!</p>
+        <div class="hero-btns">
+            <a href="#menu" class="cta-btn">Explore Menu</a>
+            <a href="#contact" class="btn-outline">Visit Cafe</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-title">
+            <h3>Welcome to <span>The Dada's Mehfil</span></h3>
+            <p>Where Chai Meets True Conversations</p>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Welcome to <strong>The Dada's Mehfil</strong>, your new favorite hangout spot right in the heart of Salaiya, Bhopal! Founded with a vision to serve incredible flavors and bring people together over steaming cups of tea and snacks.</p>
+                <p>Whether you're looking for a relaxing evening after college, a quick bite of crispy samosas and momos, or late-night gupshup with friends, our warm ambiance and delightful menu have got you covered.</p>
+                <div class="about-features">
+                    <div class="feature-box">
+                        <h4>Freshly Brewed</h4>
+                        <p>Special Kullad & Jaggery Chai made with authentic spices.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h4>Great Vibes</h4>
+                        <p>A cozy spot dedicated to endless conversations and laughter.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-img">
+                <img src="c:\Users\USER\Downloads\WhatsApp Image 2026-09-09 at 9.22.26 PM.jpeg" alt="The Dada's Mehfil Cafe">
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu">
+        <div class="section-title">
+            <h3>Our Delicious <span>Menu</span></h3>
+            <p>Taste the Love in Every Bite & Sip</p>
+        </div>
+
+        <div class="menu-grid">
+            <!-- Chai & Coffee -->
+            <div class="menu-card">
+                <div class="menu-card-header">
+                    <h4>Chai & Coffee</h4>
+                    <i class="fas fa-mug-hot"></i>
+                </div>
+                <div class="menu-items-list">
+                    <div class="menu-item-row"><span class="item-name">Regular Small Chai</span><span class="item-price">₹12</span></div>
+                    <div class="menu-item-row"><span class="item-name">Regular Large Chai</span><span class="item-price">₹20</span></div>
+                    <div class="menu-item-row"><span class="item-name">Jaggery (Gur) Tea</span><span class="item-price">₹20</span></div>
+                    <div class="menu-item-row"><span class="item-name">Lemon Tea</span><span class="item-price">₹20</span></div>
+                    <div class="menu-item-row"><span class="item-name">Ginger Tea</span><span class="item-price">₹20</span></div>
+                    <div class="menu-item-row"><span class="item-name">Hot Coffee</span><span class="item-price">₹20</span></div>
+                </div>
+            </div>
+
+            <!-- Momos -->
+            <div class="menu-card">
+                <div class="menu-card-header">
+                    <h4>Momos & Samosa</h4>
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <div class="menu-items-list">
+                    <div class="menu-item-row"><span class="item-name">Veg Momos Steam (Full/Half)</span><span class="item-price">₹70 / 50</span></div>
+                    <div class="menu-item-row"><span class="item-name">Veg Fry Momos (Full/Half)</span><span class="item-price">₹90 / 60</span></div>
+                    <div class="menu-item-row"><span class="item-name">Paneer Momos Steam</span><span class="item-price">₹100 / 70</span></div>
+                    <div class="menu-item-row"><span class="item-name">Paneer Fry Momos</span><span class="item-price">₹120 / 80</span></div>
+                    <div class="menu-item-row"><span class="item-name">Aaloo Patties</span><span class="item-price">₹30</span></div>
+                    <div class="menu-item-row"><span class="item-name">Paneer Patties</span><span class="item-price">₹40</span></div>
+                </div>
+            </div>
+
+            <!-- Maggie & Fast Food -->
+            <div class="menu-card">
+                <div class="menu-card-header">
+                    <h4>Maggie & Fries</h4>
+                    <i class="fas fa-fire"></i>
+                </div>
+                <div class="menu-items-list">
+                    <div class="menu-item-row"><span class="item-name">Plain Maggie</span><span class="item-price">₹50</span></div>
+                    <div class="menu-item-row"><span class="item-name">Vegetable Maggie</span><span class="item-price">₹60</span></div>
+                    <div class="menu-item-row"><span class="item-name">Cheese Maggie</span><span class="item-price">₹80</span></div>
+                    <div class="menu-item-row"><span class="item-name">Plain French Fries</span><span class="item-price">₹50</span></div>
+                    <div class="menu-item-row"><span class="item-name">Peri Peri Fries</span><span class="item-price">₹60</span></div>
+                    <div class="menu-item-row"><span class="item-name">Cheese Fries</span><span class="item-price">₹80</span></div>
+                </div>
+            </div>
+
+            <!-- Burgers & Sandwiches -->
+            <div class="menu-card">
+                <div class="menu-card-header">
+                    <h4>Burgers & Sandwiches</h4>
+                    <i class="fas fa-hamburger"></i>
+                </div>
+                <div class="menu-items-list">
+                    <div class="menu-item-row"><span class="item-name">Veg Burger</span><span class="item-price">₹40</span></div>
+                    <div class="menu-item-row"><span class="item-name">Veg Cheese Burger</span><span class="item-price">₹60</span></div>
+                    <div class="menu-item-row"><span class="item-name">Veg Sandwich (Grilled)</span><span class="item-price">₹70</span></div>
+                    <div class="menu-item-row"><span class="item-name">Veg Cheese Sandwich</span><span class="item-price">₹90</span></div>
+                    <div class="menu-item-row"><span class="item-name">Paneer Cheese Sandwich</span><span class="item-price">₹120</span></div>
+                    <div class="menu-item-row"><span class="item-name">Bun Maska (Normal / Creamy)</span><span class="item-price">₹40 / 70</span></div>
+                </div>
+            </div>
+
+            <!-- Cold Beverages & Shakes -->
+            <div class="menu-card">
+                <div class="menu-card-header">
+                    <h4>Cold Coffee & Shakes</h4>
+                    <i class="fas fa-glass-whiskey"></i>
+                </div>
+                <div class="menu-items-list">
+                    <div class="menu-item-row"><span class="item-name">Cold Coffee</span><span class="item-price">₹60</span></div>
+                    <div class="menu-item-row"><span class="item-name">Cold Coffee with Icecream</span><span class="item-price">₹90</span></div>
+                    <div class="menu-item-row"><span class="item-name">Oreo Shake</span><span class="item-price">₹100</span></div>
+                    <div class="menu-item-row"><span class="item-name">KitKat Shake</span><span class="item-price">₹110</span></div>
+                    <div class="menu-item-row"><span class="item-name">Salted / Masala Corn</span><span class="item-price">₹30</span></div>
+                </div>
+            </div>
+
+            <!-- Pizza & Special -->
+            <div class="menu-card">
+                <div class="menu-card-header">
+                    <h4>Pizzas & Specials</h4>
+                    <i class="fas fa-pizza-slice"></i>
+                </div>
+                <div class="menu-items-list">
+                    <div class="menu-item-row"><span class="item-name">Vegetable Pizza</span><span class="item-price">₹99</span></div>
+                    <div class="menu-item-row"><span class="item-name">Vegetable Cheese Pizza</span><span class="item-price">₹119</span></div>
+                    <div class="menu-item-row"><span class="item-name">Sweet Corn Pizza</span><span class="item-price">₹119</span></div>
+                    <div class="menu-item-row"><span class="item-name">Special Full Loaded Maggie</span><span class="item-price">₹120</span></div>
+                    <div class="menu-item-row"><span class="item-name">Special Cheese Overloaded Fries</span><span class="item-price">₹100</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Location Section -->
+    <section id="contact">
+        <div class="section-title">
+            <h3>Get in <span>Touch</span></h3>
+            <p>Come Over for a Cup of Tea!</p>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h4>The Dada's Mehfil</h4>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <span>Address</span>
+                        <p>Shop Number 10, Maa Narmada Market, Square, Salaiya, Bhopal, Madhya Pradesh 462039</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <span>Phone Number</span>
+                        <p>+91 95167 05957</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <span>Opening Hours</span>
+                        <p>Monday – Sunday: 9:00 AM – 10:30 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="map-box">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.5!2d77.45!3d23.16!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDA5JzM2LjAiTiA3N8KwMjcnMDAuMCJF!5e0!3m2!1sen!2sin!4v1650000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 <span>The Dada's Mehfil</span>. All Rights Reserved. | Designed with ❤️ for Bhaiya's Cafe.</p>
+    </footer>
+
+</body>
+</html>
+"""
+
+with open("index.html", "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+print("HTML file generated successfully.")
